@@ -23,7 +23,7 @@ status-website:
   introTitle: "**TPSClear** service status"
   introMessage: Live status for the TPSClear website, screening API, and HubSpot webhook receiver, checked every five minutes.
   css: >
-    .f.changed form { display: none; }
+    form.f.r { display: none !important; }
     .live-status article.graph { background-image: none !important; }
     .live-status article > div { display: none; }
     .live-status article h4 { margin: 0; display: flex; align-items: center; }
