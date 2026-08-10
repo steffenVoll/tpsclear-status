@@ -4,10 +4,13 @@ repo: tpsclear-status
 sites:
   - name: Website
     url: https://tpsclear.co.uk
+    showAverageResponseTime: false
   - name: API
     url: https://tpsclear.co.uk/api/health
+    showAverageResponseTime: false
   - name: HubSpot webhook receiver
     url: https://tpsclear.co.uk/api/webhooks/hubspot
+    showAverageResponseTime: false
     expectedStatusCodes:
       - 200
       - 400
@@ -18,7 +21,18 @@ status-website:
   cname: status.tpsclear.co.uk
   name: TPSClear Status
   introTitle: "**TPSClear** service status"
-  introMessage: Live uptime and response times for the TPSClear website, screening API, and HubSpot webhook receiver, checked every 5 minutes. Incident history is published below.
+  introMessage: Live status for the TPSClear website, screening API, and HubSpot webhook receiver, checked every five minutes.
+  css: >
+    .f.changed form { display: none; }
+    .live-status article.graph { background-image: none !important; }
+    .live-status article > div { display: none; }
+    .live-status article h4 { margin: 0; display: flex; align-items: center; }
+    .live-status article h4 a { pointer-events: none; color: inherit !important; }
+    article.link a::after { content: none; }
+    .live-status article h4::after { margin-left: auto; font-weight: 600; font-size: 0.9rem; }
+    .live-status article.up h4::after { content: "Operational"; color: #2f855a; }
+    .live-status article.degraded h4::after { content: "Degraded"; color: #b7791f; }
+    .live-status article.down h4::after { content: "Down"; color: #c53030; }
   navbar:
     - title: Status
       href: /
